@@ -1,5 +1,6 @@
 import "./style.scss";
-import Search from "../../components/UserSearch";
+import UserSearch from "../../components/UserSearch";
+import UserRepo from "../../components/UserRepo";
 
 function SearchUsersGit() {
   return (
@@ -10,11 +11,13 @@ function SearchUsersGit() {
 
       <div className="container__content">
         <section className="container__section__repo">
-          <div className="content-card-repo">Repo</div>
+          <div className="content-card-repo">
+            <UserRepo />
+          </div>
         </section>
         <section className="container__section__user">
           <div className="content-card-user">
-            <Search />
+            <UserSearch />
           </div>
         </section>
         <section className="container__section__starred">

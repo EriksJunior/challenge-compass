@@ -2,7 +2,7 @@ import "./style.scss";
 import imgGit from "../../assets/github.png";
 import { useState } from "react";
 import UsersFetch from "../../service/user";
-function Search() {
+function UsersSearch() {
   const [user, setUser] = useState([]);
   const [nameUser, setNameUser] = useState("");
 
@@ -53,4 +53,4 @@ function Search() {
   );
 }
 
-export default Search;
+export default UsersSearch;
