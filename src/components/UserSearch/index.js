@@ -3,18 +3,19 @@ import { useState, useEffect } from "react";
 import UsersFetch from "../../service/user";
 
 import { http } from "../../config/axios";
+import { server } from "../../config/server";
 import imgGit from "../../assets/github.png";
 import "./style.scss";
 
 function UsersSearch() {
   const [user, setUser] = useState([]);
   const [nameUser, setNameUser] = useState("");
+  const [CODE_ACESS, setCODE_ACESS] = useState("");
 
   useEffect(() => {
-    const CODE_ACESS = window.location.href.split("=")[1];
+    setCODE_ACESS(window.location.href.split("=")[1]);
     console.log(CODE_ACESS);
-    // http://localhost:3000/searchusers?code=cb481178985b6606e0fd
-  }, []);
+  }, [CODE_ACESS]);
 
   async function getUser(nameUser) {
     const dataUser = await UsersFetch.getUser(nameUser);
@@ -23,9 +24,7 @@ function UsersSearch() {
   }
 
   async function teste() {
-    const { data } = await http.post(
-      "https://github.com/login/oauth/access_token?client_id=b0af5e7950abe1036b7f&client_secret=1516d25623f7d4cb7d93001c5eb55730d7160128&code=87fbe986cc8d3e1ecdbc"
-    );
+    const data = await server.post(`/token/${CODE_ACESS}`);
     console.log(data);
   }
 
@@ -64,6 +63,7 @@ function UsersSearch() {
             onChange={({ target }) => setNameUser(target.value)}
           ></input>
           <button onClick={() => teste()}>Buscar</button>
+          {/* getUser(nameUser) */}
         </div>
       </div>
     </div>
