@@ -11,17 +11,17 @@ function SearchUsersGit() {
 
       <div className="container__content">
         <section className="container__section__repo">
-          <div className="content-card-repo">
+          <div className="content__section__card--repo">
             <UserRepo />
           </div>
         </section>
         <section className="container__section__user">
-          <div className="content-card-user">
+          <div className="content__section__card--user">
             <UserSearch />
           </div>
         </section>
         <section className="container__section__starred">
-          <div className="content-card-starred">starred</div>
+          <div className="content__section__card--starred">starred</div>
         </section>
       </div>
     </div>

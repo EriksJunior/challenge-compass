@@ -32,7 +32,7 @@ header {
   align-items: flex-end;
 }
 
-.container__section__repo {
+.content__section__card--repo {
   width: 300px;
   height: 60%;
   border: solid 2px black;
@@ -51,7 +51,7 @@ header {
   border: solid 2px black;
 }
 
-.content-card-user {
+.content__section__card--user {
   height: 100%;
   width: 100%;
 }

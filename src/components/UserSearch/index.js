@@ -1,15 +1,32 @@
-import "./style.scss";
-import imgGit from "../../assets/github.png";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+
 import UsersFetch from "../../service/user";
+
+import { http } from "../../config/axios";
+import imgGit from "../../assets/github.png";
+import "./style.scss";
+
 function UsersSearch() {
   const [user, setUser] = useState([]);
   const [nameUser, setNameUser] = useState("");
+
+  useEffect(() => {
+    const CODE_ACESS = window.location.href.split("=")[1];
+    console.log(CODE_ACESS);
+    // http://localhost:3000/searchusers?code=cb481178985b6606e0fd
+  }, []);
 
   async function getUser(nameUser) {
     const dataUser = await UsersFetch.getUser(nameUser);
     setUser(dataUser);
     console.log(user, "aqui132");
+  }
+
+  async function teste() {
+    const { data } = await http.post(
+      "https://github.com/login/oauth?client_id=b0af5e7950abe1036b7f&client_secret=406b42ace8b615e5441a4a7447205974b6452873&código=d4fedbb6db45b62c957e"
+    );
+    console.log(data);
   }
 
   return (
@@ -46,7 +63,7 @@ function UsersSearch() {
             placeholder={"Username"}
             onChange={({ target }) => setNameUser(target.value)}
           ></input>
-          <button onClick={() => getUser(nameUser)}>Buscar</button>
+          <button onClick={() => teste()}>Buscar</button>
         </div>
       </div>
     </div>

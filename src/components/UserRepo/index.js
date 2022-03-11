@@ -1,6 +1,5 @@
 import "./style.scss";
-import imgGit from "../../assets/github.png";
-import UsersFetch from "../../service/user";
+
 function UserRepo() {
   return (
     <div className="container-search">
