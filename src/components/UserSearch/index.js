@@ -24,7 +24,7 @@ function UsersSearch() {
 
   async function teste() {
     const { data } = await http.post(
-      "https://github.com/login/oauth?client_id=b0af5e7950abe1036b7f&client_secret=406b42ace8b615e5441a4a7447205974b6452873&código=d4fedbb6db45b62c957e"
+      "https://github.com/login/oauth/access_token?client_id=b0af5e7950abe1036b7f&client_secret=1516d25623f7d4cb7d93001c5eb55730d7160128&código=a3bc00196c438d0a55ad"
     );
     console.log(data);
   }
