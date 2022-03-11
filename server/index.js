@@ -3,12 +3,24 @@ const cors = require("cors");
 const app = express();
 const axios = require("axios");
 
-// app.use((req, res, next) => {
-//   res.header("Access-Control-Allow-Origin", "*");
-//   res.header("Access-Control-Allow-Methods", "GET,PUT,POST,DELETE");
-//   app.use(cors());
-//   next();
-// });
+app.use((req, res, next) => {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Methods", "GET,PUT,POST,DELETE");
+  app.use(cors());
+  next();
+});
+
+app.post("/teste", async (req, res) => {
+  try {
+    const { data } = await axios.post(
+      `https://github.com/login/oauth/access_token?client_id=b0af5e7950abe1036b7f&client_secret=1516d25623f7d4cb7d93001c5eb55730d7160128&código=cc22d980edaa80b9d1ce`
+    );
+    console.log(data, "aquiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii");
+    return res.json({ teste: data });
+  } catch (error) {
+    console.log(error);
+  }
+});
 
 async function teste() {
   try {
@@ -17,7 +29,7 @@ async function teste() {
     // const CODIGO = "cc22d980edaa80b9d1ce";
     // const REDIRECT_URI = "http://localhost:3000/searchusers";
 
-    const { data } = axios.post(
+    const { data } = await axios.post(
       `https://github.com/login/oauth/access_token?client_id=b0af5e7950abe1036b7f&client_secret=1516d25623f7d4cb7d93001c5eb55730d7160128&código=cc22d980edaa80b9d1ce`
     );
     //github.com/login/oauth/access_token?client_id=b0af5e7950abe1036b7f&client_secret=1516d25623f7d4cb7d93001c5eb55730d7160128&código=cc22d980edaa80b9d1ce FUNCIONOUUUUUUUUUUUUUUU
@@ -26,8 +38,6 @@ async function teste() {
     console.log(error);
   }
 }
-
-teste();
 
 app.listen(3000, () => {
   console.log("servidor rodando na porta 3000");
