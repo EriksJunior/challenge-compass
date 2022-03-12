@@ -1,17 +1,23 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useDataUser } from "../../context/User";
 import UsersFetch from "../../service/user";
 
 import "../UserStarred/style.scss";
 
-function UserRepo() {
+function UserStarred() {
   const { DATA_USER } = useDataUser();
   const [detailsStarred, setDetailsStarred] = useState([]);
+  const [zeroValue, setZeroValue] = useState(0);
 
-  async function getRepoByUser() {
+  useEffect(() => {
+    setZeroValue(0);
+  }, [DATA_USER]);
+
+  async function getStarredByUser() {
     const bearerToken = localStorage.getItem("token");
     const data = await UsersFetch.getStarred(DATA_USER.login, bearerToken);
     setDetailsStarred(data);
+    setZeroValue(data.length);
     console.log(data);
   }
 
@@ -23,14 +29,14 @@ function UserRepo() {
 
       <div className="container-starred__result">
         <div className="container-starred__result__content">
-          <h3>Total Starreds: {detailsStarred.length}</h3>
+          <h3>Total Starreds: {zeroValue}</h3>
         </div>
       </div>
       {DATA_USER.login === "" ? null : (
-        <button onClick={() => getRepoByUser()}>List</button>
+        <button onClick={() => getStarredByUser()}>Click To List</button>
       )}
     </div>
   );
 }
 
-export default UserRepo;
+export default UserStarred;
