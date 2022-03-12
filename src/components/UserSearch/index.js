@@ -1,10 +1,10 @@
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
 import UsersFetch from "../../service/user";
+
 import { server } from "../../config/server";
 import { useDataUser } from "../../context/User";
+
 import imgGit from "../../assets/github.png";
-import ButtonsComp from "../Buttons";
 
 import "./style.scss";
 
@@ -22,25 +22,32 @@ function UsersSearch() {
   }, [CODE_ACESS]);
 
   async function getToken() {
-    if (localStorage.getItem("token")) {
-      SET_BEARER_TOKEN(localStorage.getItem("token"));
-    } else if (CODE_ACESS === "") {
-      return;
-    } else {
-      const { data } = await server.post(`/token/${CODE_ACESS}`);
-      const x = data.split("&")[0].split("=");
-      localStorage.setItem("token", `${x[1]}`);
+    try {
+      if (localStorage.getItem("token")) {
+        SET_BEARER_TOKEN(localStorage.getItem("token"));
+      } else if (CODE_ACESS === "") {
+        return;
+      } else {
+        const { data } = await server.post(`/token/${CODE_ACESS}`);
+        const x = data.split("&")[0].split("=");
+        localStorage.setItem("token", `${x[1]}`);
+      }
+    } catch (error) {
+      console.log(error);
     }
   }
 
   async function getUser(nameUser) {
-    SET_BEARER_TOKEN(localStorage.getItem("token"));
-    const dataUser = await UsersFetch.getUser(nameUser, BEARER_TOKEN);
-    setUser(dataUser);
-    SET_DATA_USER(dataUser);
+    try {
+      SET_BEARER_TOKEN(localStorage.getItem("token"));
+      const dataUser = await UsersFetch.getUser(nameUser, BEARER_TOKEN);
+      setUser(dataUser);
+      SET_DATA_USER(dataUser);
 
-    Object.assign(DATA_USER, dataUser);
-    console.log(DATA_USER);
+      Object.assign(DATA_USER, dataUser);
+    } catch (error) {
+      console.log(error);
+    }
   }
 
   function handleKeyPress(event) {
@@ -83,7 +90,10 @@ function UsersSearch() {
             onChange={({ target }) => setNameUser(target.value)}
             onKeyPress={handleKeyPress}
           ></input>
-          <ButtonsComp></ButtonsComp>
+          <p>press enter to search</p>
+          <button>
+            <a href="/detailedResult">Detailed Result</a>
+          </button>
         </div>
       </div>
     </div>

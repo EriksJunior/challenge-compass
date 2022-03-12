@@ -33,9 +33,10 @@ header {
 }
 
 .content__section__card--repo {
+  display: flex;
+  align-items: center;
   width: 300px;
-  height: 60%;
-  border: solid 2px black;
+  height: 100%;
 }
 
 .container__section__user {
@@ -43,6 +44,11 @@ header {
   height: 90%;
   background-color: rgba(0, 0, 0, 0.568);
   border-radius: 10px;
+}
+
+.container__section__repo {
+  width: 300px;
+  height: 100%;
 }
 
 .container__section__starred {

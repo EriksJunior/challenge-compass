@@ -7,6 +7,13 @@ class UsersFetch {
     });
     return data;
   }
+
+  async getRepo(nameUser, bearerToken) {
+    const { data } = await http.get(`/${nameUser}/repos`, {
+      access_token: `${bearerToken}`,
+    });
+    return data;
+  }
 }
 
 export default new UsersFetch();
