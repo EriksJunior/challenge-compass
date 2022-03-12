@@ -14,6 +14,13 @@ class UsersFetch {
     });
     return data;
   }
+
+  async getStarred(nameUser, bearerToken) {
+    const { data } = await http.get(`/${nameUser}/starred`, {
+      access_token: `${bearerToken}`,
+    });
+    return data;
+  }
 }
 
 export default new UsersFetch();

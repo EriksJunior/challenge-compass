@@ -61,6 +61,7 @@ function UsersSearch() {
       <div className="container-search__image">
         <img
           className="container-search__img"
+          alt=""
           src={
             user.avatar_url === undefined ||
             user.avatar_url === "" ||

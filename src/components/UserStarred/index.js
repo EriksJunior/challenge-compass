@@ -1,20 +1,18 @@
 import { useState } from "react";
-
-import { useDataUser, useDataRepo } from "../../context/User";
+import { useDataUser } from "../../context/User";
 import UsersFetch from "../../service/user";
 
 import "../UserStarred/style.scss";
 
 function UserRepo() {
   const { DATA_USER } = useDataUser();
-  const { DATA_REPO, SET_DATA_REPO } = useDataRepo();
-  const [detailsRepo, setDetailsRepo] = useState([]);
+  const [detailsStarred, setDetailsStarred] = useState([]);
 
   async function getRepoByUser() {
     const bearerToken = localStorage.getItem("token");
-    const data = await UsersFetch.getRepo(DATA_USER.login, bearerToken);
-    SET_DATA_REPO(data[0].owner.login);
-    setDetailsRepo(data);
+    const data = await UsersFetch.getStarred(DATA_USER.login, bearerToken);
+    setDetailsStarred(data);
+    console.log(data);
   }
 
   return (
@@ -25,7 +23,7 @@ function UserRepo() {
 
       <div className="container-starred__result">
         <div className="container-starred__result__content">
-          <h3>Total Starreds: </h3>
+          <h3>Total Starreds: {detailsStarred.length}</h3>
         </div>
       </div>
       {DATA_USER.login === "" ? null : (
