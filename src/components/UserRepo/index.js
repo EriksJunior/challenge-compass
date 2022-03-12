@@ -7,8 +7,8 @@ import "../UserRepo/style.scss";
 
 function UserRepo() {
   const { DATA_USER } = useDataUser();
-  const [detailsRepo, setDetailsRepo] = useState([]);
   const [zeroValue, setZeroValue] = useState(0);
+  const { SET_DATA_REPO } = useDataRepo();
 
   useEffect(() => {
     setZeroValue(0);
@@ -17,8 +17,8 @@ function UserRepo() {
   async function getRepoByUser() {
     const bearerToken = localStorage.getItem("token");
     const data = await UsersFetch.getRepo(DATA_USER.login, bearerToken);
-    setDetailsRepo(data);
     setZeroValue(data.length);
+    SET_DATA_REPO(data);
   }
 
   return (

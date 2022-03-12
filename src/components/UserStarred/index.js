@@ -1,13 +1,13 @@
 import { useState, useEffect } from "react";
-import { useDataUser } from "../../context/User";
+import { useDataUser, useDataStarred } from "../../context/User";
 import UsersFetch from "../../service/user";
 
 import "../UserStarred/style.scss";
 
 function UserStarred() {
   const { DATA_USER } = useDataUser();
-  const [detailsStarred, setDetailsStarred] = useState([]);
   const [zeroValue, setZeroValue] = useState(0);
+  const { SET_DATA_STARRED } = useDataStarred();
 
   useEffect(() => {
     setZeroValue(0);
@@ -16,9 +16,8 @@ function UserStarred() {
   async function getStarredByUser() {
     const bearerToken = localStorage.getItem("token");
     const data = await UsersFetch.getStarred(DATA_USER.login, bearerToken);
-    setDetailsStarred(data);
     setZeroValue(data.length);
-    console.log(data);
+    SET_DATA_STARRED(data);
   }
 
   return (

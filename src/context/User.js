@@ -40,6 +40,8 @@ export default function UserProvider({ children }) {
 
   const [DATA_REPO, SET_DATA_REPO] = useState([]);
 
+  const [DATA_STARRED, SET_DATA_STARRED] = useState([]);
+
   return (
     <UserContext.Provider
       value={{
@@ -47,6 +49,8 @@ export default function UserProvider({ children }) {
         SET_DATA_USER,
         DATA_REPO,
         SET_DATA_REPO,
+        DATA_STARRED,
+        SET_DATA_STARRED,
       }}
     >
       {children}
@@ -64,4 +68,10 @@ export function useDataRepo() {
   const context = useContext(UserContext);
   const { DATA_REPO, SET_DATA_REPO } = context;
   return { DATA_REPO, SET_DATA_REPO };
+}
+
+export function useDataStarred() {
+  const context = useContext(UserContext);
+  const { DATA_STARRED, SET_DATA_STARRED } = context;
+  return { DATA_STARRED, SET_DATA_STARRED };
 }
