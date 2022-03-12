@@ -1,5 +1,6 @@
 import UserSearch from "../../components/UserSearch";
 import UserRepo from "../../components/UserRepo";
+import UserStarred from "../../components/UserStarred";
 import UserProvider from "../../context/User";
 
 import "./style.scss";
@@ -24,7 +25,9 @@ function SearchUsersGit() {
             </div>
           </section>
           <section className="container__section__starred">
-            <div className="content__section__card--starred">starred</div>
+            <div className="content__section__card--starred">
+              <UserStarred />
+            </div>
           </section>
         </div>
       </div>

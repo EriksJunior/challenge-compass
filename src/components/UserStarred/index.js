@@ -3,7 +3,7 @@ import { useState } from "react";
 import { useDataUser, useDataRepo } from "../../context/User";
 import UsersFetch from "../../service/user";
 
-import "../UserRepo/style.scss";
+import "../UserStarred/style.scss";
 
 function UserRepo() {
   const { DATA_USER } = useDataUser();
@@ -18,17 +18,14 @@ function UserRepo() {
   }
 
   return (
-    <div className="container-repo">
-      <div className="container-repo__title">
-        <h1>Repos</h1>
+    <div className="container-starred">
+      <div className="container-starred__title">
+        <h1>Starred</h1>
       </div>
 
-      <div className="container-repo__result">
-        <div className="container-repo__result__content">
-          <h3>
-            Total repos:
-            {DATA_USER.login === DATA_REPO ? detailsRepo.length : "0"}
-          </h3>
+      <div className="container-starred__result">
+        <div className="container-starred__result__content">
+          <h3>Total Starreds: </h3>
         </div>
       </div>
       {DATA_USER.login === "" ? null : (
