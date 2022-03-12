@@ -15,7 +15,9 @@ app.post("/token/:code", async function (req, res) {
     const { data } = await axios.post(
       `https://github.com/login/oauth/access_token?client_id=${CLIENT_ID}&client_secret=${CLIENT_SECRET}&code=${CODIGO}`
     );
+    res.json({ token: data });
     console.log(data);
+    return data;
   } catch (error) {
     console.log(error);
   }

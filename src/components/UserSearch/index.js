@@ -1,23 +1,21 @@
 import { useState, useEffect } from "react";
 
 import UsersFetch from "../../service/user";
-import { server } from "../../config/server";
 
+import { server } from "../../config/server";
 import imgGit from "../../assets/github.png";
 import "./style.scss";
 
 function UsersSearch() {
   const [user, setUser] = useState([]);
   const [nameUser, setNameUser] = useState("");
-  const [CODE_ACESS, setCODE_ACESS] = useState("");
+  const [CODE_ACESS, SET_CODE_ACESS] = useState("");
+  const [BEARER_TOKEN, SET_BEARER_TOKEN] = useState("");
 
   useEffect(() => {
-    setCODE_ACESS(window.location.href.split("=")[1]);
-  }, [CODE_ACESS]);
-
-  useEffect(() => {
+    SET_CODE_ACESS(window.location.href.split("=")[1]);
     getToken();
-  }, []);
+  }, [CODE_ACESS]);
 
   async function getUser(nameUser) {
     const dataUser = await UsersFetch.getUser(nameUser);
@@ -25,8 +23,12 @@ function UsersSearch() {
   }
 
   async function getToken() {
-    const data = await server.post(`/token/${CODE_ACESS}`);
+    const { data } = await server.post(`/token/${CODE_ACESS}`);
     console.log(data);
+  }
+
+  function saveTokenInlocalStorage() {
+    localStorage.setItem("token", `${BEARER_TOKEN}`);
   }
 
   return (

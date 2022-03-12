@@ -3,8 +3,8 @@ import "./style.scss";
 function UserRepo() {
   return (
     <div className="container-search">
-      <div className="container-search__image">
-        <img className="container-search__img" width="150" height="150" />
+      <div className="container-search__title">
+        <h1 style={{ color: "white" }}>Repo</h1>
       </div>
 
       <div className="container-search__result">
