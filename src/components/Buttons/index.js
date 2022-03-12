@@ -1,6 +1,10 @@
 import "./style.scss";
-function ButtonsComp({ textButton, ...props }) {
-  return <button className="buttonSearch">{textButton}</button>;
+function ButtonsComp({ ...props }) {
+  return (
+    <button {...props} className="buttonSearch">
+      <a href="/detailedResult">Detailed Result</a>
+    </button>
+  );
 }
 
 export default ButtonsComp;

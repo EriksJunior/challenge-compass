@@ -1,26 +1,14 @@
-import "./style.scss";
+import "../UserRepo/style.scss";
 
 function UserRepo() {
   return (
-    <div className="container-search">
-      <div className="container-search__title">
-        <h1 style={{ color: "white" }}>Repo</h1>
+    <div className="container-repo">
+      <div className="container-repo__title">
+        <h1 className="ovo">Repos</h1>
       </div>
 
-      <div className="container-search__result">
-        <div className="container-search__result__content">
-          <h3>Usuario: </h3>
-          <h4>Localização: </h4>
-          <h4>Bio:</h4>
-          <h5>Desde: </h5>
-        </div>
-      </div>
-
-      <div className="container-search__form">
-        <div className="container-search__form__content">
-          <input type="text" placeholder={"Username"}></input>
-          <button>Buscar</button>
-        </div>
+      <div className="container-repo__result">
+        <div className="container-repo__result__content"></div>
       </div>
     </div>
   );

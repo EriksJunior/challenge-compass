@@ -12,12 +12,17 @@ app.post("/token/:code", async function (req, res) {
     const CLIENT_ID = "b0af5e7950abe1036b7f";
     const CLIENT_SECRET = "1516d25623f7d4cb7d93001c5eb55730d7160128";
 
+    const bodyApi = {
+      client_id: CLIENT_ID,
+      client_secret: CLIENT_SECRET,
+      code: CODIGO,
+    };
+
     const { data } = await axios.post(
-      `https://github.com/login/oauth/access_token?client_id=${CLIENT_ID}&client_secret=${CLIENT_SECRET}&code=${CODIGO}`
+      `https://github.com/login/oauth/access_token`,
+      bodyApi
     );
-    res.json({ token: data });
-    console.log(data);
-    return data;
+    return res.json(data);
   } catch (error) {
     console.log(error);
   }
