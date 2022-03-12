@@ -1,9 +1,8 @@
 import { useState, useEffect } from "react";
 
 import UsersFetch from "../../service/user";
-
-import { http } from "../../config/axios";
 import { server } from "../../config/server";
+
 import imgGit from "../../assets/github.png";
 import "./style.scss";
 
@@ -14,16 +13,18 @@ function UsersSearch() {
 
   useEffect(() => {
     setCODE_ACESS(window.location.href.split("=")[1]);
-    console.log(CODE_ACESS);
   }, [CODE_ACESS]);
+
+  useEffect(() => {
+    getToken();
+  }, []);
 
   async function getUser(nameUser) {
     const dataUser = await UsersFetch.getUser(nameUser);
     setUser(dataUser);
-    console.log(user, "aqui132");
   }
 
-  async function teste() {
+  async function getToken() {
     const data = await server.post(`/token/${CODE_ACESS}`);
     console.log(data);
   }
@@ -62,8 +63,7 @@ function UsersSearch() {
             placeholder={"Username"}
             onChange={({ target }) => setNameUser(target.value)}
           ></input>
-          <button onClick={() => teste()}>Buscar</button>
-          {/* getUser(nameUser) */}
+          <button onClick={() => getUser(nameUser)}>Buscar</button>
         </div>
       </div>
     </div>
