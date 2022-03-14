@@ -44,9 +44,14 @@ function DetailedResult() {
               Username:
               {DATA_USER.name === "" ? DATA_USER.login : DATA_USER.name}
             </h1>
-
             <div className="container__general__detailedresult__buttons">
               <button onClick={() => fillListRepo()}>List Repo</button>
+              <button
+                className="container__general__detailedresult__buttons__return"
+                onClick={() => fillListRepo()}
+              >
+                Return
+              </button>
               <button onClick={() => fillListStarred()}>List Starred</button>
             </div>
           </div>
