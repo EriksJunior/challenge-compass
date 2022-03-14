@@ -1,4 +1,14 @@
 .container-search {
+  header {
+    h3 {
+      color: white;
+      font-family: "Courier New", Courier, monospace, sans-serif;
+      text-align: center;
+      margin-top: 2px;
+      margin-bottom: 0;
+    }
+  }
+
   height: 80%;
   width: 100%;
   display: flex;
