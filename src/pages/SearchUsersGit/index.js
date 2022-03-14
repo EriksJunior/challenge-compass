@@ -2,7 +2,7 @@ import UserSearch from "../../components/UserSearch";
 import UserRepo from "../../components/UserRepo";
 import UserStarred from "../../components/UserStarred";
 
-import "./style.scss";
+import "../SearchUsersGit/style.scss";
 
 function SearchUsersGit() {
   return (

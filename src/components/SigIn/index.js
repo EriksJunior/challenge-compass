@@ -1,4 +1,4 @@
-import "./style.scss";
+import "../SigIn/style.scss";
 
 function SigIn() {
   if (localStorage.getItem("token")) {
@@ -13,7 +13,7 @@ function SigIn() {
     }
 
     return (
-      <div>
+      <div className="button__SigIn">
         <button onClick={() => handleSignIn()}>Login With Git </button>
       </div>
     );

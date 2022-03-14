@@ -7,7 +7,7 @@ import { useDataUser } from "../../context/User";
 
 import imgGit from "../../assets/github.png";
 
-import "./style.scss";
+import "../UserSearch/style.scss";
 
 function UsersSearch() {
   const { DATA_USER, SET_DATA_USER } = useDataUser();
