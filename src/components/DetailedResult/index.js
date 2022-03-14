@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 import { useDataUser, useDataRepo, useDataStarred } from "../../context/User";
 
@@ -50,7 +51,7 @@ function DetailedResult() {
                 className="container__general__detailedresult__buttons__return"
                 onClick={() => fillListRepo()}
               >
-                Return
+                <Link to={"/searchusers"}>Return</Link>
               </button>
               <button onClick={() => fillListStarred()}>List Starred</button>
             </div>
@@ -63,7 +64,7 @@ function DetailedResult() {
               ? DATA_REPO.map((e) => {
                   return (
                     <div className="container__general__detailedresult__info__repo__result">
-                      <ul>
+                      <ul key={e.id}>
                         <li>{e.name}</li>
                       </ul>
                     </div>
