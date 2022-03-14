@@ -46,7 +46,12 @@
           width: 80px;
         }
         .container__general__detailedresult__buttons__return {
-          width: 80px;
+          a {
+            width: 80px;
+            outline: none;
+            text-decoration: none;
+            color: white;
+          }
         }
       }
     }
