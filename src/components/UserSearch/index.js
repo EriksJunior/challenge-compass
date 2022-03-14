@@ -60,6 +60,9 @@ function UsersSearch() {
 
   return (
     <div className="container-search">
+      <header className="container__header">
+        <h3 className="container__header__title">Welcome!</h3>
+      </header>
       <div className="container-search__image">
         <img
           className="container-search__img"
