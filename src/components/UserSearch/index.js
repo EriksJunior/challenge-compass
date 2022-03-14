@@ -44,7 +44,6 @@ function UsersSearch() {
       const dataUser = await UsersFetch.getUser(nameUser, BEARER_TOKEN);
       setUser(dataUser);
       SET_DATA_USER(dataUser);
-      console.log(DATA_USER, "usuariosssssssss");
 
       Object.assign(DATA_USER, dataUser);
     } catch (error) {
