@@ -9,22 +9,40 @@
     height: 100%;
     display: flex;
     flex-direction: row;
+    justify-content: space-evenly;
     color: white;
 
     .container__general__detailedresult__user {
-      width: 30%;
+      width: 25%;
       text-align: center;
       background-color: rgb(0, 0, 0);
       border-radius: 10px;
 
-      .container__general__detailedresult__content {
+      .container__general__detailedresult__content__img {
         display: flex;
         justify-content: center;
-        .container__general__detailedresult__content__img {
+        img {
           border-radius: 50%;
           background-color: white;
           border-radius: 10px;
           margin-top: 10px;
+        }
+      }
+      .container__general__detailedresult__buttons {
+        width: 100%;
+        display: flex;
+        justify-content: space-evenly;
+        margin-top: 150px;
+        button {
+          border-radius: 5px;
+          background-color: #50248a;
+          color: white;
+          font-weight: bold;
+          border: none;
+          cursor: pointer;
+          margin-top: 15px;
+          height: 50px;
+          width: 40%;
         }
       }
     }
@@ -32,12 +50,56 @@
       width: 70%;
       display: flex;
       flex-direction: column;
+
       .container__general__detailedresult__info__repo {
         height: 50%;
+        display: flex;
+        flex-wrap: wrap;
+        background-color: rgb(0, 0, 0);
+        border: solid 5px rgb(238, 219, 219);
+        border-radius: 10px;
+        overflow-y: scroll;
+
+        .container__general__detailedresult__info__repo__result {
+          border: solid 1px black;
+          margin: 10px;
+          background-color: rgb(35, 13, 56);
+          border-radius: 10px;
+
+          li {
+            padding-right: 10px;
+            display: inline-block;
+            overflow: hidden !important;
+            text-overflow: ellipsis;
+          }
+        }
       }
       .container__general__detailedresult__info__starred {
         height: 50%;
+        margin-top: 20px;
       }
     }
+  }
+}
+
+@media (max-width: 994px) {
+  .container__general__content__detailedresult {
+    display: flex;
+    flex-direction: column !important;
+    margin-top: 30px !important;
+  }
+  .container__general__detailedresult__user {
+    width: 100% !important;
+    height: 50% !important;
+    .container__general__detailedresult__buttons {
+      margin-top: 0px !important;
+    }
+  }
+  .container__general__detailedresult__info {
+    width: 100% !important;
+    height: auto !important;
+  }
+  .container__general__detailedresult__info__repo {
+    height: 150px !important;
   }
 }

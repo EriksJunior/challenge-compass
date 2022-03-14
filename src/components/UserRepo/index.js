@@ -19,6 +19,7 @@ function UserRepo() {
     const data = await UsersFetch.getRepo(DATA_USER.login, bearerToken);
     setZeroValue(data.length);
     SET_DATA_REPO(data);
+    console.log(DATA_USER, "repoooooooo");
   }
 
   return (

@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import UsersFetch from "../../service/user";
 
@@ -43,6 +44,7 @@ function UsersSearch() {
       const dataUser = await UsersFetch.getUser(nameUser, BEARER_TOKEN);
       setUser(dataUser);
       SET_DATA_USER(dataUser);
+      console.log(DATA_USER, "usuariosssssssss");
 
       Object.assign(DATA_USER, dataUser);
     } catch (error) {
@@ -93,7 +95,7 @@ function UsersSearch() {
           ></input>
           <p>press enter to search</p>
           <button>
-            <a href="/detailedResult">Detailed Result</a>
+            <Link to="/detailedresult">Detailed Result</Link>
           </button>
         </div>
       </div>
