@@ -51,7 +51,7 @@ function DetailedResult() {
                 className="container__general__detailedresult__buttons__return"
                 onClick={() => fillListRepo()}
               >
-                <Link to="/detailedresult">Return</Link>
+                <Link to="/searchusers">Return</Link>
               </button>
               <button onClick={() => fillListStarred()}>List Starred</button>
             </div>
