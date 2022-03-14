@@ -1,10 +1,10 @@
 
 
-### No diretório do projeto, você deve executar:
+### No diretório do projeto, você deve executar pelo terminal:
 
 `npm install`
 
-### Logo depois será necessário acessar a pasta (server) e executar:
+### Logo depois será necessário acessar a pasta (server) no terminal e executar:
 
  `npm install`
  
