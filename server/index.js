@@ -9,8 +9,8 @@ app.use(cors());
 app.post("/token/:code", async function (req, res) {
   try {
     const CODIGO = req.params.code;
-    const CLIENT_ID = "b0af5e7950abe1036b7f";
-    const CLIENT_SECRET = "1516d25623f7d4cb7d93001c5eb55730d7160128";
+    const CLIENT_ID = "";
+    const CLIENT_SECRET = "";
 
     const bodyApi = {
       client_id: CLIENT_ID,
